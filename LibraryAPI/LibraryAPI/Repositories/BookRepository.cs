@@ -9,5 +9,10 @@ namespace LibraryAPI.Repositories
     public class BookRepository: Repository<Book, Guid>
     {
         public BookRepository(LibraryContext context) : base(context) { }
+
+        public IEnumerable<Book> GetAvailableBooks()
+        {
+            return entities.Where(b => b.NoOfCopies > 0);
+        }
     }
 }
