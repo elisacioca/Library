@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -26,6 +27,13 @@ namespace LibraryAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            var context = services.AddDbContext<LibraryContext>(opt =>
+             opt.UseSqlServer(Configuration.GetConnectionString("Library")));
+            services.AddControllers()
+             .ConfigureApiBehaviorOptions(options =>
+             {
+                 options.SuppressConsumesConstraintForFormFileParameters = true;
+             });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
