@@ -17,7 +17,7 @@ namespace LibraryAPI.Repositories
             entities = context.Set<T>();
         }
 
-        public void Add(T model)
+        public virtual void Add(T model)
         {
             entities.Add(model);
             Save();
