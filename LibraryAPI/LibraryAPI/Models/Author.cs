@@ -12,6 +12,8 @@ namespace LibraryAPI.Models
         public string Surname { get; set; }
         public DateTime DateOfBirth { get; set; }
         public DateTime DateOfDeath { get; set; }   
-        public List<IPublication> Publications { get; set; }
+        public List<Book> Books { get; set; }
+
+        public List<Magazine> Magazines { get; set; }
     }
 }
