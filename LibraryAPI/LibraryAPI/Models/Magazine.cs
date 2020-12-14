@@ -7,7 +7,7 @@ namespace LibraryAPI.Models
 {
     public class Magazine : IPublication
     {
-        public Guid MAgazineId { get; set; }
+        public Guid MagazineId { get; set; }
         string IPublication.Name { get; set; }
         string IPublication.Description { get; set; }
         DateTime IPublication.PublicationDate { get; set; }

@@ -14,5 +14,10 @@ namespace LibraryAPI.Repositories
         {
             return entities.Where(b => b.NoOfCopies > 0);
         }
+
+        public IEnumerable<Book> GetBooksByAuthor(Guid authorId)
+        {
+            return entities.Where(b => b.AuthorId == authorId);
+        }
     }
 }

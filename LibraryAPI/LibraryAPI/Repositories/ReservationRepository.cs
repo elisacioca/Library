@@ -12,7 +12,6 @@ namespace LibraryAPI.Repositories
 
         public override void Add(Reservation model)
         {
-            base.Add(model);
             var publications = context.Set<IPublication>();
             var publication = publications.Find(model.PublicationId);
             if (publication.NoOfCopies > 0)
@@ -25,7 +24,7 @@ namespace LibraryAPI.Repositories
             }
 
             publications.Update(publication);
-            context.SaveChanges();
+            base.Add(model);
         }
     }
 }

@@ -55,6 +55,17 @@ namespace LibraryAPI.Controllers
             return NotFound();
         }
 
+        [HttpGet("/Author/{authorId}")]
+        public ActionResult GetBooksByAuthor(Guid authorId)
+        {
+            var books = repo.GetBooksByAuthor(authorId);
+            if (books != null)
+            {
+                return Ok(books);
+            }
+            return NotFound();
+        }
+
         [HttpGet("{id}")]
         public ActionResult GetBook(Guid id)
         {
