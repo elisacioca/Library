@@ -12,6 +12,9 @@ namespace LibraryAPI.Models
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         public Guid PublicationId { get; set; }
+        public string Username { get; set; }
+        [ForeignKey("Username")]
+        public User User { get; set; }
 
         [ForeignKey("PublicationId")]
         public IPublication Publication { get; set; }

@@ -9,6 +9,6 @@ namespace LibraryAPI.Models
     {
         public string Username { get; set; }
         public string Password { get; set; }
-        public List<IPublication> BookedPublications { get; set; }
+        public List<Reservation> BookedPublications { get; set; }
     }
 }
