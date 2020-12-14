@@ -12,8 +12,8 @@ namespace LibraryAPI.Repositories
 
         public override void Add(Reservation model)
         {
-            var publications = context.Set<IPublication>();
-            var publication = publications.Find(model.PublicationId);
+            var publications = context.Set<Book>();
+            var publication = publications.Find(model.BookId);
             if (publication.NoOfCopies > 0)
             {
                 publication.NoOfCopies--;

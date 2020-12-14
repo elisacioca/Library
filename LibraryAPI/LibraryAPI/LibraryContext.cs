@@ -1,5 +1,7 @@
 ﻿using LibraryAPI.Models;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
+using System.Collections.Generic;
 using System.Configuration;
 
 namespace LibraryAPI
@@ -30,6 +32,10 @@ namespace LibraryAPI
             builder.Entity<User>(entity => {
                 entity.HasIndex(e => e.Username).IsUnique();
             });
-        }
+            builder.Entity<Book>().Property(p => p.Tags)
+            .HasConversion(
+                v => JsonConvert.SerializeObject(v),
+                v => JsonConvert.DeserializeObject<List<string>>(v));
+            }
     }
 }
